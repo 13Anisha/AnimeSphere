@@ -1,14 +1,19 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import axios from 'axios';
+import path from 'path';
+
 
 const app=express();
-const PORT=8080;
+const PORT = process.env.PORT || 8080;
 const API_URL="https://api.jikan.moe/v4";
 const NUM_ANIMES=18;
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 
 
