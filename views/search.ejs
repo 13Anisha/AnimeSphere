@@ -1,0 +1,39 @@
+<%- include("header.ejs") %>
+<% if(locals.content){ %>
+    <div class="album py-5 ">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <% content.forEach((anime, index) => { %>
+                    <div class="col">
+                        <form action="/anime" method="POST">
+                            <input type="hidden" name="animeID" value="<%= anime.mal_id %>">
+                            
+                            <div class="card shadow-sm h-70 w-80">
+                                <button type="submit" title="<%= anime.title %>" style="border: none; background: none; cursor: pointer;">
+                                
+                                    <img src="<%= anime.images.jpg.image_url %>" class="card-img-top " alt="<%= anime.title %>">
+                                    <div class="card-body mt-2">
+                                        <p class="card-text fs-5 fw-bolder text-light"><%= anime.title %></p>
+                                        
+                                    </div>
+                                </button>                            
+                            
+                            
+                                
+                
+                            </div>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        
+        
+    </div>
+    <% }else{ %>
+        <div class="container">
+            <h4>No Animes found !!</h4>
+        </div>
+    <% } %>
+
+<%- include("footer.ejs") %>

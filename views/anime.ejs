@@ -1,0 +1,66 @@
+<%- include("header.ejs") %>
+
+<div class="container text-center Detail">
+    <div class="row g-2">
+        <div class="card AnimeTitle w-100 mb-3">
+            <div class="card-body text-light fs-3 fw-bolder">
+                <%= Info.title %>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 mb-3">
+            <div class="card h-100">
+                <img src="<%= Info.images.jpg.image_url %>" class="card-img-top img-fluid h-auto anime-image" alt="Anime Image">
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 mb-3">
+            <div class="card Anime m-2 h-100">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <% if (Info.title_english) { %>
+                    <h6 class="fw-bold">English Title: <span class="anime-value"><%= Info.title_english %></span></h6>
+                    <% } else { %>
+                    <h6 class="fw-bold">English Title: <span class="anime-value">Not available</span></h6>
+                    <% } %>
+
+                    <h6 class="fw-bold">Japanese Title: <span class="anime-value"><%= Info.title_japanese %></span></h6>
+                    <% if(Info.episodes){ %>
+                        <h6 class="fw-bold">Total Episodes: <span class="anime-value"><%= Info.episodes %></span></h6>
+                    <% } else { %>
+                        <h6 class="fw-bold">Total Episodes: <span class="anime-value">null</span></h6>
+                    <% } %>
+                    <h6 class="fw-bold">Duration: <span class="anime-value"><%= Info.duration %></span></h6>
+                    <h6 class="fw-bold">Status: <span class="anime-value"><%= Info.status %></span></h6>
+                    <h6 class="fw-bold">Aired: <span class="anime-value"><%= Info.aired.string %></span></h6>
+                    <h6 class="fw-bold">Rating: <span class="anime-value"><%= Info.rating %></span></h6>
+                    <h6 class="fw-bold">Rank: <span class="anime-value"><%= Info.rank %></span></h6>
+                    <h6 class="fw-bold">Popularity: <span class="anime-value"><%= Info.popularity %></span></h6>
+                    <h6 class="fw-bold">Studio: 
+                    <% if(Info.studios){ %>
+                    <% Info.studios.forEach((studio) => { %> 
+                    <span class="anime-value"><%= studio.name %></span>,
+                    <% }) %>
+                    <% } else { %>
+                    <span class="anime-value">Null</span>
+                    <% } %>
+                    </h6>
+                    <h6 class="fw-bold">Genre: 
+                    <% if (Info.genres) { %>
+                    <% Info.genres.forEach((genre) => { %> 
+                    <span class="anime-value"><%= genre.name %></span>,
+                    <% }) %>
+                    <% } else { %>
+                    <span class="anime-value">Not available</span>
+                    <% } %>
+                    </h6>
+
+                    <% if (Info.synopsis) { %>
+                    <h6 class="fw-bold">Description: <span class="anime-value"><%= Info.synopsis %></span></h6>
+                    <% } else { %>
+                    <h6 class="fw-bold">Description: <span class="anime-value">Not Available</span></h6>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("footer.ejs") %>

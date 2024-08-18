@@ -1,0 +1,45 @@
+<%- include("header.ejs") %>
+
+
+<div class="album py-5 ">
+    <div class="container">
+        <h3 class="fst-italic mb-4 text-center">Explore Now 👇</h3>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <% content.forEach((anime, index) => { %>
+                <div class="col">
+                    <form action="/anime" method="POST">
+                        <input type="hidden" name="animeID" value="<%= anime.mal_id %>">
+                        
+                        <div class="card shadow-sm h-70 w-100 " >
+                            <button type="submit" title="<%= anime.title %>" style="border: none; background: none; cursor: pointer;">
+                            
+                                <img src="<%= anime.images.jpg.image_url %>" class="card-img-top img-fluid" alt="<%= anime.title %>">
+                                <div class="card-body mt-2">
+                                    <p class="card-text fs-5 fw-bolder text-light"><%= anime.title %></p>
+                                    
+                                </div>
+                            </button>
+                            
+                        
+                        
+                            
+                            
+                            
+                        </div>
+                    </form>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    
+    
+</div>
+
+
+
+
+
+    
+
+    
+<%- include("footer.ejs") %>
