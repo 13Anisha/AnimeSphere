@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import axios from 'axios';
 
 const app=express();
-const PORT=5000;
+const PORT=8080;
 const API_URL="https://api.jikan.moe/v4";
 const NUM_ANIMES=18;
 
